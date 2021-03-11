@@ -1,0 +1,12 @@
+$mq-breakpoints: (
+    mobile:  375px,
+    mobile-large:  420px,
+    small: 482px,
+    tablet:  720px,
+    medium: 768px,
+    content-width: $max_content_width,
+    content-width-padding: $max_content_width + 2 * $global_font_size_in_px,
+    super: 1600px,
+    imac: 2560px,
+    max-screen: $max-screen-width,
+) !default;

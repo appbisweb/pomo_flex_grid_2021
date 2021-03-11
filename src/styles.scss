@@ -1,0 +1,226 @@
+@import 'colors';
+@import 'globals';
+@import 'breakpoints';
+@import 'breakpoint_master';
+//@import './flex_grid';
+
+
+* {
+  box-sizing: border-box !important;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+body, html {
+  color: $dark;
+  scroll-behavior: smooth;
+  line-height: 1.25;
+}
+
+#viewPort {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  font-size: 12px;
+  background-color: white;
+  padding: 0.1rem 0.25rem;
+  z-index: 99;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2)
+}
+
+h1, h2, h3 {
+  text-align: center;
+  color: $dark;
+}
+
+p {
+  font-size: 14px;
+  color: $dark;
+  max-width: 60ch;
+  text-align: center;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+.aw_bg_gray {
+  background-color: $light_gray;
+}
+
+.aw_container {
+ margin-top: 1rem !important;
+}
+
+.aw_container .aw_row .aw_module {
+  font-size: 14px;
+  background-color: $gray;
+  height: 30px;
+  margin-bottom: 0.25rem;
+  border: 1px solid $dark_gray;
+  text-align: center;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+  align-content: stretch;
+  overflow: hidden;
+}
+
+//Copy from here ###########################
+
+//Layout Styles
+$sizes: 1, 2, 4, 8;
+@each $size in $sizes {
+  .p#{$size} { padding: $size + 0rem; }
+  .pt#{$size} { padding-top: $size + 0rem; }
+  .pr#{$size} { padding-right: $size + 0rem; }
+  .pb#{$size} { padding-bottom: $size + 0rem; }
+  .pl#{$size} { padding-left: $size + 0rem; }
+
+  .m#{$size} { margin: $size + 0rem !important; }
+  .mt#{$size} { margin-top: $size + 0rem !important; }
+  .mr#{$size} { margin-right: $size + 0rem !important; }
+  .mb#{$size} { margin-bottom: $size + 0rem !important; }
+  .ml#{$size} { margin-left: $size + 0rem !important; }
+}
+
+
+
+//Flexgrid
+.aw_container .aw_row {
+  max-width: $max_content_width;
+  margin: auto;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.aw_container .aw_row.aw_stretch [class^="col"] {
+  flex-grow: 1;
+}
+
+.aw_container > .aw_row > [class^="col"]  {
+  @include mq($from:medium) {
+    padding-left: $global_gutter;
+    padding-right: $global_gutter;
+  }
+
+  @include mq($until:medium) {
+    padding-left: $global_gutter_small;
+    padding-right: $global_gutter_small;
+  }
+}
+
+.aw_container .aw_row [class^="col"] .aw_row > [class^="col"] {
+  @include mq($from:medium) {
+    padding-left: $global_gutter;
+    padding-right: $global_gutter;
+  }
+
+  @include mq($until:medium) {
+    padding-left: $global_gutter_small;
+    padding-right: $global_gutter_small;
+  }
+}
+
+.aw_container .aw_row [class^="col"] {
+  margin: 0;
+  min-height: 0.125rem;
+  flex-grow: 0;
+  overflow-x: hidden;
+
+  @include mq($until:medium) {
+    &:not([class$="md"]):not([class$="sm"]) {
+      flex-basis: 100%;
+    }
+  }
+
+  @include mq($until:small) {
+    &:not([class$="sm"]){
+      flex-basis: 100%;
+    }
+  }
+}
+
+
+
+$max-columns: 12;
+$max-columns-md: 8;
+$max-columns-sm: 4;
+//Grid from Medium and larger
+@include mq($from:medium) {
+  @for $i from 1 through $max-columns {
+    .col_#{$i} {
+      flex-basis: (($i / $max-columns) * 100)+0%;
+    }
+  }
+}
+
+@include mq($from:small, $until: medium) {
+  @for $i from 1 through $max-columns {
+    .col_#{$i}md {
+      @if (($i / $max-columns) * 100 ) > (100 / $max-columns-md) {
+        flex-basis: (($i / $max-columns) * 100)+0%;
+      }@else{
+        flex-basis: (100 / $max-columns-md)+0%;
+      }
+    }
+  }
+}
+
+
+@include mq($until: small) {
+  @for $i from 1 through $max-columns {
+    .col_#{$i}sm {
+      @if (($i / $max-columns) * 100 ) > (100 / $max-columns-sm) {
+        flex-basis: (($i / $max-columns) * 100)+0%;
+      }@else{
+        flex-basis: (100 / $max-columns-sm)+0%;
+      }
+    }
+  }
+}
+
+// @include mq($from: small) {
+//   $max-columns-special: 8;
+//   @for $i from 1 through $max-columns-special {
+//     .aw_special_grid_caware {
+//       .col_#{$i}xsm,
+//       .col_#{$i}sm,
+//       .col_#{$i}md,
+//       .col_#{$i} {
+//         flex-basis: (($i / $max-columns-special) * 100)+0%;
+//       }
+//     }
+//   }
+// }
+//
+
+
+//Special Grid
+.aw_container.aw_special_grid_list .aw_row {
+  display: grid;
+	grid-template-columns: repeat(12, [col-start] 1fr);
+  gap: 0.1rem 30px;
+  padding-left: $global_gutter;
+  padding-right: $global_gutter;
+
+  [class^="col"] {
+    padding: 0;
+  }
+
+	@include mq($until:medium) {
+		grid-template-columns: repeat(8, [col-start] 1fr);
+    gap: 0.1rem 20px;
+
+    padding-left: $global_gutter_small;
+    padding-right: $global_gutter_small;
+	}
+
+	@include mq($until:small) {
+		grid-template-columns: repeat(4, [col-start] 1fr);
+	}
+}
