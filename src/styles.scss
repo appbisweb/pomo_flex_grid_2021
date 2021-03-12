@@ -55,7 +55,7 @@ p {
 .aw_container .aw_row .aw_module {
   font-size: 14px;
   background-color: $gray;
-  height: 30px;
+  min-height: 30px;
   margin-bottom: 0.25rem;
   border: 1px solid $dark_gray;
   text-align: center;
