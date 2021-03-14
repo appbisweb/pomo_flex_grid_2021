@@ -71,4 +71,38 @@ p {
 
 //Copy from here ###########################
 
-//Equal Height for Columns
+//Nesting
+.aw_container > .aw_row > [class^="col"] .aw_row > [class^="col"] {
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+
+  @include mq($from:medium) {
+    padding-left: $global_gutter;
+    padding-right: $global_gutter;
+  }
+
+  @include mq($from:small, $until:medium) {
+    padding-left: $global_gutter_small;
+    padding-right: $global_gutter_small;
+    
+    &[class*="12"],
+    &[class*="12"]:not([class$="sm"]){
+      padding-left: 0;
+      padding-right: 0; 
+    }
+
+  }
+
+  @include mq($until:small) {
+    &[class$="md"],
+    &[class$="12sm"] {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+} 

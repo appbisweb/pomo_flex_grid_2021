@@ -25,17 +25,7 @@
 }
 
 //Nesting Padding
-.aw_container  .aw_row [class^="col"] .aw_row > [class^="col"] {
-  @include mq($from:medium) {
-    padding-left:0;
-    padding-right: $global_gutter;
-  }
 
-  @include mq($until:medium) {
-    padding-left: $global_gutter_small;
-    padding-right: $global_gutter_small;
-  }
-} 
 
 //Default Column Settings
 .aw_container .aw_row [class^="col"] {
