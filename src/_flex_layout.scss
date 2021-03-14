@@ -1,0 +1,4 @@
+//Equal Height for Columns
+.e_height [class^="col"]  > * {
+  min-height: 100%;
+}
