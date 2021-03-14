@@ -13,3 +13,19 @@ $sizes: 1, 2, 4, 8;
   .mb#{$size} { margin-bottom: $size + 0rem !important; }
   .ml#{$size} { margin-left: $size + 0rem !important; }
 }
+
+.left {
+  text-align: left;
+  justify-content: flex-start;
+}
+
+.center {
+  text-align: center;
+  justify-content: center;
+}
+
+.right {
+  text-align: right;
+  justify-content: flex-end;
+}
+
