@@ -1,4 +1,14 @@
 //Equal Height for Columns
-.e_height [class^="col"]  > * {
+.v_center [class^="col"]  > *,
+.eq_height [class^="col"]  > * {
   min-height: 100%;
+}
+
+.v_center [class^="col"] > * {
+  display: flex;
+	align-items: center;
+}
+
+.h_center [class^="col"] > * {
+  justify-content: center;
 }

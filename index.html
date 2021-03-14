@@ -721,7 +721,7 @@
 
   <h3>Test mehr Spalten als erlaubt angelegt</h3>
   <p>Angelegt als: col_1 col_1md col_1sm -> bedeutet ohne Einschränkungen 12 Spalten bei jeder Bildschirmbreite.</p>
-  <div class="aw_container">
+  <div class="aw_container mb4">
 
     <div class="aw_row">
       <div class="col_1 col_1md col_1sm">
@@ -788,6 +788,31 @@
 
   </div>
 
+  <h2>Nesting</h2>
+  <div class="aw_container mb4">
+    <div class="aw_row">
+      <div class="col_6 col_6md">
+        <div class="aw_row">
+          <div class="col_6 col_6md">
+              <div class="aw_module">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, dolores.
+              </div>
+          </div>
+          <div class="col_6 col_6md">
+              <div class="aw_module">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, dolores.
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="col_6 col_6md">
+        <div class="aw_module">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, dolores.
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <h2>Full-Width Background</h2>
   <div class="aw_container aw_full_width aw_bg_gray">
@@ -806,18 +831,19 @@
     </div>
   </div>
 
+
   <h2>Standard Height Behavior</h2>
-  <div class="aw_container">
-    <div class="aw_row pt2 pb2 mb4">
+  <div class="aw_container mb4">
+    <div class="aw_row">
       <div class="col_6 col_6md">
-        <div class="aw_bg_gray">
+        <div class="aw_bg_gray p1">
           <h3>1/3 (col_6 col_6md)</h3>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus, eum?
         </div>
       </div>
 
       <div class="col_6 col_6md">
-        <div class="aw_bg_gray">
+        <div class="aw_bg_gray p1">
           <h3>1/3 (col_6 col_6md)</h3>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos deleniti sint dolor consequuntur quibusdam? Quisquam similique recusandae voluptate. Asperiores, quo.
         </div>
@@ -827,8 +853,8 @@
 
   <h2>Flex Layout Styles</h2>
   <h3>Forced Equal Height</h3>
-  <div class="aw_container">
-    <div class="aw_row pt2 pb2 equal_height">
+  <div class="aw_container mb4">
+    <div class="aw_row eq_height">
       <div class="col_6 col_6md">
         <div class="aw_bg_gray">
           <div class="aw_innertext p1">
@@ -843,7 +869,7 @@
           <div class="aw_bg_gray">
             <div class="aw_innertext p1">
                 <h3>1/3 (col_6 col_6md)</h3>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus, eum?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis reiciendis nihil nostrum laboriosam sit iure odit pariatur, ipsum voluptates unde.
             </div>
             
           </div>
@@ -853,8 +879,8 @@
   </div>
 
   <h3>Vertically and Horizontally Centered Content</h3>
-  <div class="aw_container">
-    <div class="aw_row pt2 pb2 v_center h_center">
+  <div class="aw_container mb4">
+    <div class="aw_row v_center h_center">
       <div class="col_6 col_6md">
         <div class="aw_bg_gray">
           <div class="aw_innertext p1">

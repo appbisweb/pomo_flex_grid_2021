@@ -24,9 +24,10 @@
   }
 }
 
-.aw_container .aw_row [class^="col"] .aw_row > [class^="col"] {
+//Nesting Padding
+.aw_container  .aw_row [class^="col"] .aw_row > [class^="col"] {
   @include mq($from:medium) {
-    padding-left: $global_gutter;
+    padding-left:0;
     padding-right: $global_gutter;
   }
 
@@ -34,13 +35,13 @@
     padding-left: $global_gutter_small;
     padding-right: $global_gutter_small;
   }
-}
+} 
 
+//Default Column Settings
 .aw_container .aw_row [class^="col"] {
   margin: 0;
   min-height: 0.125rem;
   flex-grow: 0;
-
 
   @include mq($until:medium) {
     &:not([class$="md"]):not([class$="sm"]) {
