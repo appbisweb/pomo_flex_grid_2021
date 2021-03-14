@@ -153,10 +153,13 @@ $max-columns-sm: 4;
   }
 
   @include mq($until:small) {
+    padding-left: $global_gutter_small;
+    padding-right: $global_gutter_small;
+
     &[class$="md"],
     &[class$="12sm"] {
       padding-left: 0;
       padding-right: 0;
     }
   }
-} 
+}
