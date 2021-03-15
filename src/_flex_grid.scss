@@ -32,13 +32,13 @@
   flex-grow: 0;
 
   @include mq($until:medium) {
-    &:not([class$="md"]):not([class$="sm"]) {
+    &:not([class*="md"]):not([class*="sm"]) {
       flex-basis: 100%;
     }
   }
 
   @include mq($until:small) {
-    &:not([class$="sm"]){
+    &:not([class*="sm"]){
       flex-basis: 100%;
     }
   }
@@ -63,6 +63,7 @@ $max-columns-sm: 4;
     .col_#{$i}md {
       @if (($i / $max-columns) * 100 ) > (100 / $max-columns-md) {
         flex-basis: (($i / $max-columns) * 100)+0%;
+        max-width: (($i / $max-columns) * 100)+0%;
       }@else{
         flex-basis: (100 / $max-columns-md)+0%;
       }
@@ -145,7 +146,7 @@ $max-columns-sm: 4;
     padding-right: $global_gutter_small;
     
     &[class*="12"],
-    &[class*="12"]:not([class$="sm"]){
+    &[class*="12"]:not([class*="sm"]){
       padding-left: 0;
       padding-right: 0; 
     }
@@ -156,8 +157,8 @@ $max-columns-sm: 4;
     padding-left: $global_gutter_small;
     padding-right: $global_gutter_small;
 
-    &[class$="md"],
-    &[class$="12sm"] {
+    &[class*="md"],
+    &[class*="12sm"] {
       padding-left: 0;
       padding-right: 0;
     }
